@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: platforms-dump
-  namespace: labs
+  namespace: kyverno
 spec:
   replicas: 1
   selector:

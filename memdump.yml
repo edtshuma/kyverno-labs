@@ -21,7 +21,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: mysvc
+  name: mysvcc
 spec:
   type: ClusterIP
   selector:

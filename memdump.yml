@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: platforms-dump
+  namespace: labs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: platforms
+  template:
+    metadata:
+      labels:
+        app: platforms
+    spec:
+      containers:
+        - name: platforms
+          image: golide/dotnet6-memdump:0.0.2
+          imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysvc
+spec:
+  type: ClusterIP
+  selector:
+    app: platforms
+  ports:
+  - name: platforms
+    protocol: TCP
+    port: 7799
+    targetPort: 7799

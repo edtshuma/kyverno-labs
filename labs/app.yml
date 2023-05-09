@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: policies
+spec:
+  destination:
+    name: kind
+    namespace: kyverno
+  project: default
+  source:
+    path: labs
+    repoURL: https://github.com/edtshuma/kyverno-labs.git
+    targetRevision: kyverno
+    directory:
+      recurse: true
